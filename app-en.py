@@ -5,6 +5,11 @@ from toilet_sim import ToiletSimStep
 
 st.title("Restroom Queue Simulation and Visualization")
 
+# Add time variation controls
+st.sidebar.header("Time Variation Settings")
+enable_time_variation = st.sidebar.checkbox("Enable Time Variation", value=False)
+time_variation_std = st.sidebar.slider("Time Variation Standard Deviation (seconds)", 1, 30, 5, disabled=not enable_time_variation)
+
 params = {
     'n_male': st.slider('Number of male stalls', 1, 10, 3),
     'n_female': st.slider('Number of female stalls', 1, 10, 3),
@@ -16,7 +21,9 @@ params = {
     'female_pee_time': st.slider('Female urination average time (seconds)', 20, 300, 40),
     'female_poop_time': st.slider('Female defecation average time (seconds)', 60, 1800, 90),
     'female_poop_prob': st.slider('Female defecation probability', 0.05, 0.3, 0.1),
-    'sim_time': st.slider('Total simulation time (seconds)', 600, 18000, 3600)
+    'sim_time': st.slider('Total simulation time (seconds)', 600, 18000, 3600),
+    'enable_time_variation': enable_time_variation,
+    'time_variation_std': time_variation_std
 }
 
 if st.button('Start Simulation'):

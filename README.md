@@ -6,7 +6,7 @@ In modern society, the design and management of public restrooms is a critical p
 
 Whether you are a researcher, facility manager, or simply an individual interested in queuing theory, this simulation project offers valuable insights and data-driven support. We welcome you to explore, use, and share your findings!
 
-This project simulates and visualizes restroom queue behavior based on queuing theory, helping to explain why queues are more common in women’s restrooms.
+This project simulates and visualizes restroom queue behavior based on queuing theory, helping to explain why queues are more common in women's restrooms.
 
 [中文文档](README-zh.md)
 
@@ -15,6 +15,15 @@ This project simulates and visualizes restroom queue behavior based on queuing t
 * Supports customizable parameters such as number of stalls for men and women, arrival distribution, toilet usage time, and probabilities of different usage types
 * Visualized distribution of waiting times for men and women
 * Interactive parameter adjustment
+
+## Latest Updates
+### Time Variation Control Feature
+* Added random variation control for toilet usage time
+* Toggle on/off time variation
+* Uses normal distribution to model time variations
+* Adjustable standard deviation (1-30 seconds)
+* Maintains average usage time while changing the dispersion of time distribution
+* Ensures no negative time values
 
 ## Demo Illustration
 <p align="center">
@@ -45,5 +54,7 @@ streamlit run app.py
 * Support for time-varying arrival rates
 * More diverse toilet usage behaviors
 * Modeling of restroom cleaning/maintenance periods
+* Support for additional time distribution types (e.g., Gamma, Weibull distributions)
+* More random variation control parameters
 
 Feel free to reach out if you have any questions or would like to contribute!

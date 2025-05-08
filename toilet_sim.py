@@ -57,9 +57,19 @@ class ToiletSimStep:
 
     def use_toilet(self, gender):
         if np.random.rand() < self.params[f'{gender}_poop_prob']:
-            duration = np.random.exponential(self.params[f'{gender}_poop_time'])
+            base_duration = self.params[f'{gender}_poop_time']
         else:
-            duration = np.random.exponential(self.params[f'{gender}_pee_time'])
+            base_duration = self.params[f'{gender}_pee_time']
+            
+        if self.params.get('enable_time_variation', False):
+            # 使用正态分布，标准差由参数控制
+            std = self.params.get('time_variation_std', 5)
+            duration = np.random.normal(base_duration, std)
+            # 确保时间不会小于0
+            duration = max(0, duration)
+        else:
+            duration = np.random.exponential(base_duration)
+            
         yield self.env.timeout(duration)
 
     def _find_free(self, status_list):

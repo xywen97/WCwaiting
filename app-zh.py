@@ -5,6 +5,11 @@ from toilet_sim import ToiletSimStep
 
 st.title("男女厕所排队仿真与可视化")
 
+# 添加时间随机性控制
+st.sidebar.header("时间随机性设置")
+enable_time_variation = st.sidebar.checkbox("启用时间随机性", value=False)
+time_variation_std = st.sidebar.slider("时间波动标准差（秒）", 1, 30, 5, disabled=not enable_time_variation)
+
 params = {
     'n_male': st.slider('男厕坑位数', 1, 10, 3),
     'n_female': st.slider('女厕坑位数', 1, 10, 3),
@@ -16,7 +21,9 @@ params = {
     'female_pee_time': st.slider('女小便平均时间（秒）', 20, 300, 40),
     'female_poop_time': st.slider('女大便平均时间（秒）', 60, 1800, 90),
     'female_poop_prob': st.slider('女大便概率', 0.05, 0.3, 0.1),
-    'sim_time': st.slider('仿真总时长（秒）', 600, 18000, 3600)
+    'sim_time': st.slider('仿真总时长（秒）', 600, 18000, 3600),
+    'enable_time_variation': enable_time_variation,
+    'time_variation_std': time_variation_std
 }
 
 if st.button('开始仿真'):
