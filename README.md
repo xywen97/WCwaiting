@@ -16,6 +16,12 @@ This project simulates and visualizes restroom queue behavior based on queuing t
 * Visualized distribution of waiting times for men and women
 * Interactive parameter adjustment
 
+## Demo Illustration
+<p align="center">
+  <img src="images/demo_en.png" alt="English Demo" width="45%"/>
+  <img src="images/demo_zh.png" alt="Chinese Demo" width="45%"/>
+</p>
+
 ## Installation
 
 ```bash

@@ -13,6 +13,12 @@
 - 可视化展示男女等待时间分布
 - 交互式参数调节
 
+## 演示效果展示
+<p align="center">
+  <img src="images/demo_en.png" alt="English Demo" width="45%"/>
+  <img src="images/demo_zh.png" alt="Chinese Demo" width="45%"/>
+</p>
+
 ## 依赖安装
 ```bash
 pip install -r requirements.txt
